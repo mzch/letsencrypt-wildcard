@@ -13,13 +13,13 @@ if [[ -n "$LE_EMAIL" ]] ; then
   OPTS="-m "$LE_EMAIL
 fi
 
-which dns-hook-vd.sh
+which dns-hook-vd.sh > /dev/null
 if [[ $? -ne 0 ]] ; then
   DNS_HOOK="/etc/letsencrypt/dns-hook-vd.sh"
 else
   DNS_HOOL="dns-hook-vd.sh
 fi
-which clean-hook-vd.sh
+which clean-hook-vd.sh > /dev/null
 if [[ $? -ne 0 ]] ; then
   CLN_HOOK="/etc/letsencrypt/clean-hook-vd.sh"
 else
