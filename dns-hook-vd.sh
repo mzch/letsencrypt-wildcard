@@ -9,8 +9,12 @@ if [[ -z "$DOMAIN" ]] ; then
   exit 1
 fi
 
-if [[ -z "$TOKEN_FILE" ]] ; then
-  TOKEN_FILE="/home/mzch/.vd-token"
+if [[ -z "$VD_TOKEN_FILE" ]] ; then
+  VD_TOKEN_FILE="$HOME/.vd-token"
+fi
+if [[ ! -f "$VD_TOKEN_FILE" ]] ; then
+  echo "Missing API Token file."
+  exit 1
 fi
 
 if [[ -z "$VD_NAMESERVER" ]] ; then
@@ -28,7 +32,7 @@ TMPFILE=$(mktemp -p "$TMPDIR" 'vd-dns.XXXXXXXX')
 DNSFILE=$(mktemp -p "$TMPDIR" 'vd-dns.XXXXXXXX')
 
 APIENDPOINT="https://api.value-domain.com/v1/domains"
-API_TOKEN=$(cat "${TOKEN_FILE}")
+API_TOKEN=$(cat "${VD_TOKEN_FILE}")
 AUTHHDR="Authorization: Bearer ${API_TOKEN}"
 CTYPHDR="Content-Type: application/json"
 
