@@ -13,6 +13,13 @@ if [[ -z "$TOKEN_FILE" ]] ; then
   TOKEN_FILE="/home/mzch/.vd-token"
 fi
 
+if [[ -z "$VD-NAMESERVER" ]] ; then
+  VD-NAMESERVER="valuedomain1"
+elif [[ "$VD-NAMESERVER" != "valuedomain1" && "$VD-NAMESERVER" != "valuedomain11" ]] ; then
+  echo "Invalid name servers."
+  exit 1
+fi
+
 if [[ -z "$TMPDIR" ]] ; then
   TMPDIR="/tmp"
 fi
@@ -31,7 +38,7 @@ eval ${CURL} | jq -r '.results.records' | awk '{if (NF > 2) {if ($2 != "_acme-ch
 set -f
 
 DNSREQ=""
-DNSREQ=${DNSREQ}"{\"ns_type\":\"valuedomain1\",\"records\":\""
+DNSREQ=${DNSREQ}"{\"ns_type\":\"${VD-NAMESERVER}\",\"records\":\""
 DNSREQ=${DNSREQ}$(cat "$TMPFILE" | sed -e 's/\"/\\"/g' | sed -e ':loop' -e 'N; $!b loop' -e 's/\n/\\n/g')
 DNSREQ=${DNSREQ}"\",\"ttl\":\"3600\"}"
 
