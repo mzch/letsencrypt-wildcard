@@ -39,7 +39,7 @@ wild-vd.sh example.com [メールアドレス]
 |環境変数名|設定内容|
 | :------------ | :----- |
 |`LE_EMAIL`|Let's Encrypt 登録用のアドレス。|
-|`VD-NAMESERVER`| Value-Domain のネームサーバー種別を指定します。`ns1-5.value-domain.com` 使用時は `valuedomain1` を `ns11-13.value-domain.com` 使用時は `valuedomain11` を指定してください。それ以外の値の場合、エラーになります。デフォルトは、`valuedomain1` です。|
+|`VD_NAMESERVER`| Value-Domain のネームサーバー種別を指定します。`ns1-5.value-domain.com` 使用時は `valuedomain1` を `ns11-13.value-domain.com` 使用時は `valuedomain11` を指定してください。それ以外の値の場合、エラーになります。デフォルトは、`valuedomain1` です。|
 
 
 #### ライセンス
