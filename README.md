@@ -3,9 +3,9 @@
 これは、[Value-Domain](https://www.value-domain/) のネームサーバーを使用しているドメインのワイルドカード TLS 証明書を Certbot を使って Let's Encrypt から取得するためのスクリプト集です。
 
 
-#### 必要なシステム・コマンド
+#### 必要なコマンド
 
-|システム／コマンド名|備考|
+|コマンド|備考|
 | ---- | ---- |
 | `Bash` | https://www.gnu.org/software/bash/ |
 | `Gawk` | https://www.gnu.org/software/gawk/ (BSD awk でも動作するかどうかは検証していません) |
