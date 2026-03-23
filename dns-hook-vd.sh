@@ -8,6 +8,13 @@ if [[ -z "$DOMAIN" ]] ; then
   echo "Missing argument."
   exit 1
 fi
+SLEEP_SEC=$2
+if [[ ! -z "$SLEEP_SECS" ]]
+  LE_SLEEP_SECS=$SLEEP_SECS
+fi
+if [[ -z "$LE_SLEEP_SECS" ]]
+  LE_SLEEP_SECS=10
+fi
 
 if [[ -z "$VD_TOKEN_FILE" ]] ; then
   VD_TOKEN_FILE="$HOME/.vd-token"
@@ -60,4 +67,4 @@ fi
 
 rm "$TMPFILE" "$DNSFILE"
 
-sleep 10
+sleep $LE_SLEEP_SECS
