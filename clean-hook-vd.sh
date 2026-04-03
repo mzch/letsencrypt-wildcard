@@ -13,7 +13,7 @@ if [[ -z "$VD_TOKEN_FILE" ]] ; then
   VD_TOKEN_FILE="$HOME/.vd-token"
 fi
 if [[ ! -f "$VD_TOKEN_FILE" ]] ; then
-  echo "Missing API Token file."
+  echo "Missing API Token file. Please place API Token in "$VD_TOKEN_FILE
   exit 1
 fi
 
