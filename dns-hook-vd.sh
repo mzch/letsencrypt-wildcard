@@ -9,10 +9,10 @@ if [[ -z "$DOMAIN" ]] ; then
   exit 1
 fi
 SLEEP_SEC=$2
-if [[ ! -z "$SLEEP_SECS" ]]
+if [[ ! -z "$SLEEP_SECS" ]] ; then
   LE_SLEEP_SECS=$SLEEP_SECS
 fi
-if [[ -z "$LE_SLEEP_SECS" ]]
+if [[ -z "$LE_SLEEP_SECS" ]] ; then
   LE_SLEEP_SECS=10
 fi
 

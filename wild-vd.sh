@@ -5,6 +5,8 @@ if [[ $# -lt 1 ]]; then
   exit 1
 fi
 
+LE_DOMAIN=$1
+
 OPTS=
 if [[ -n $2 ]] ; then
   LE_EMAIL=$2
@@ -42,6 +44,6 @@ fi
 
 $SUDO certbot certonly --manual \
 	--agree-tos --preferred-challenges dns "$OPTS" \
-	--manual-auth-hook "$DNS_HOOK"
-	--manual-cleanup-hook "$CLN_HOOK"
-	-d $1 -d *.$1
+	--manual-auth-hook "$DNS_HOOK" \
+	--manual-cleanup-hook "$CLN_HOOK" \
+	-d $LE_DOMAIN -d *.$LE_DOMAIN
